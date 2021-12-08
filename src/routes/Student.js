@@ -7,11 +7,11 @@ export default function Student() {
   const params = useParams();
 
   const getStudentById = (id) => {
-    fetch(`https://students.hasura.app/api/rest/student/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/student/${id}`, {
       method: "GET",
       headers: {
         "x-hasura-admin-secret":
-          "733M3Tgq5IK2ALRXFSivpX86TGJX82goni63azRwZGCtVY1qN4t8521f1LE4iKxq",
+          `${process.env.REACT_APP_HASURA_SECRET}`,
       },
     })
       .then((response) => response.json())
